@@ -1,14 +1,17 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./pre.css";
 import Cat from "../assets/cat.png";
 import flw1 from "../assets/flower1.png";
 import flw2 from "../assets/flower2.png";
 import Reye from "../assets/Reye.png";
 import Leye from "../assets/Leye.png";
+import Login from "../components/login";
 
 function Pre() {
   const leftEyeRef = useRef(null);
   const rightEyeRef = useRef(null);
+  const [started, setStarted] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -33,7 +36,6 @@ function Pre() {
       const dy = mouseY - eyeCenterY;
       const angle = Math.atan2(dy, dx);
 
-      // ปรับระยะการเคลื่อนไหวให้สมจริง
       const maxDistance = 15;
       const distance = Math.min(maxDistance, Math.hypot(dx, dy) * 0.2);
 
@@ -44,31 +46,44 @@ function Pre() {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  }, [started]);
+
+  useEffect(() => {
+    if (fadeOut) {
+      const timer = setTimeout(() => {
+        setStarted(true);
+      }, 600); // ควรตรงกับเวลา transition
+      return () => clearTimeout(timer);
+    }
+  }, [fadeOut]);
+
+  if (started) {
+    return <Login />;
+  }
 
   return (
-    <div style={{ height: "100vh", overflow: "hidden", position: "relative" }}>
+    <div className={`pre-container ${fadeOut ? "fade-out" : ""}`}>
       <div className="top-box">
         <div className="message message-1">พร้อมไหมม</div>
         <div className="message message-2">ไอหมาอ้วนน อ้วนตุ้บบบบ</div>
 
-        {/* รูปแมว */}
-        <img src={Cat} className="Cat" />
+        <img src={Cat} className="Cat" alt="cat" />
 
-        {/* ตาซ้าย */}
         <div className="eye left-eye" ref={leftEyeRef}>
-          <img src={Leye} className="pupil" />
+          <img src={Leye} className="pupil" alt="left eye" />
         </div>
 
-        {/* ตาขวา */}
         <div className="eye right-eye" ref={rightEyeRef}>
-        <img src={Reye} className="pupil" />
+          <img src={Reye} className="pupil" alt="right eye" />
         </div>
       </div>
+
       <div className="bottom-box">
-        <img src={flw1} className="flw1" />
-        <img src={flw2} className="flw2" />
-        <button className="custom-button">เริ่มกันเลยย เย้ เย้!</button>
+        <img src={flw1} className="flw1" alt="flower 1" />
+        <img src={flw2} className="flw2" alt="flower 2" />
+        <button className="custom-button" onClick={() => setFadeOut(true)}>
+          เริ่มกันเลยย เย้ เย้!
+        </button>
       </div>
     </div>
   );
