@@ -6,21 +6,34 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* เมื่อมี class fade-in จะทำให้แสดงออกมาแบบค่อยๆ */
 .login.fade-in {
   opacity: 1;
   transform: translateY(0);
 }
 
-.book {
+.book-container {
   position: relative;
   width: 700px;
   height: auto;
-  top: 60px;
+  top: 50px;
+}
+
+.book {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.jigsaw-wrapper {
+  position: absolute;
+  top: 21px;
+  right: 404px;
+  z-index: 2;
+  
+
 }

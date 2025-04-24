@@ -1,0 +1,18 @@
+.jigsaw-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 85px);
+    grid-template-rows: repeat(3, 85px);
+    gap: 4px;
+    margin-top: 20px;
+  }
+  
+  .tile {
+    width: 100px;
+    height: 100px;
+    background-size: 300px 300px;
+    border: 1px solid #999;
+    cursor: grab;
+  }
+  
+
+  
