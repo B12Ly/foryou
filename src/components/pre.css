@@ -45,8 +45,8 @@ body,
   color: #86a788;
   font-size: 3vw;
   font-weight: 700;
-  margin-top: -26vh;
-  margin-bottom: -5vh;
+  margin-top: -23vh;
+  margin-bottom: -2vh;
 }
 
 .message-2 {
@@ -86,7 +86,7 @@ body,
   max-width: 730px;
   height: auto;
   position: absolute;
-  top: 12vh;
+  top: 17vh;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
@@ -98,7 +98,7 @@ body,
   max-width: 70px;
   max-height: 70px;
   position: absolute;
-  top: 40vh;
+  top: 41.5vh;
   display: flex;
   justify-content: center;
   align-items: center;
