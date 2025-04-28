@@ -20,20 +20,50 @@
   position: relative;
   width: 700px;
   height: auto;
-  top: 50px;
+  top: 60px;
+  right: 70px;
 }
 
 .book {
-  width: 100%;
+  width: 120%;
   height: auto;
   display: block;
 }
 
 .jigsaw-wrapper {
   position: absolute;
-  top: 21px;
-  right: 404px;
+  top: 24px;
+  right: 334px;
   z-index: 2;
-  
+}
 
+.cover-container {
+  position: absolute;
+  top: 42px;
+  right: 318px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3; 
+}
+
+.cover-image {
+  width: 350px; 
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+}
+
+.uncover-button {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.uncover-button:hover {
+  transform: scale(1.1); 
 }

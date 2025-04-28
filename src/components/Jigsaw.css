@@ -1,18 +1,40 @@
 .jigsaw-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 85px);
-    grid-template-rows: repeat(3, 85px);
-    gap: 4px;
-    margin-top: 20px;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 108px);  
+  grid-template-rows: repeat(3, 108px);   
+  gap: 4px;
+  margin-top: 20px;
+  position: relative;
+  
+}
+
   
   .tile {
-    width: 100px;
-    height: 100px;
-    background-size: 300px 300px;
+    width: 120px;  
+    height: 120px;
+    background-size: 360px 360px; 
     border: 1px solid #999;
     cursor: grab;
+    position: relative;
+    
   }
+
+  .tile:first-child {
+    border-top-left-radius: 10px; /* มุมซ้ายบน */
+  }
+  
+  .tile:nth-child(3) {
+    border-top-right-radius: 10px; /* มุมขวาบน */
+  }
+  
+  .tile:nth-last-child(3) {
+    border-bottom-left-radius: 10px; /* มุมซ้ายล่าง */
+  }
+  
+  .tile:last-child {
+    border-bottom-right-radius: 10px; /* มุมขวาล่าง */
+  }
+  
   
 
   

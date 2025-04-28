@@ -86,7 +86,7 @@ body,
   max-width: 730px;
   height: auto;
   position: absolute;
-  top: 17vh;
+  top: 20vh;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
