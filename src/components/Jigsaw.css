@@ -20,19 +20,19 @@
   }
 
   .tile:first-child {
-    border-top-left-radius: 10px; /* มุมซ้ายบน */
+    border-top-left-radius: 10px; 
   }
   
   .tile:nth-child(3) {
-    border-top-right-radius: 10px; /* มุมขวาบน */
+    border-top-right-radius: 10px; 
   }
   
   .tile:nth-last-child(3) {
-    border-bottom-left-radius: 10px; /* มุมซ้ายล่าง */
+    border-bottom-left-radius: 10px; 
   }
   
   .tile:last-child {
-    border-bottom-right-radius: 10px; /* มุมขวาล่าง */
+    border-bottom-right-radius: 10px; 
   }
   
   

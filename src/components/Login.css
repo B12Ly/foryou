@@ -45,25 +45,33 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 3; 
+  z-index: 3;
 }
 
 .cover-image {
-  width: 350px; 
+  width: 350px;
   height: auto;
   border-radius: 10px;
   margin-bottom: 20px;
+  transition: opacity 1s ease;
+
 
 }
+
 
 .uncover-button {
   position: absolute;
   width: 100px;
   height: auto;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: opacity 1s ease;
+}
+
+.cover-image.fade-out,
+.uncover-button.fade-out {
+  opacity: 0;
 }
 
 .uncover-button:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
