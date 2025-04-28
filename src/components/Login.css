@@ -75,3 +75,38 @@
 .uncover-button:hover {
   transform: scale(1.1);
 }
+
+.message-container {
+  position: absolute;
+  top: 55px;
+  left: 480px;
+  z-index: 4;
+  color: #333;
+  font-size: 18px;
+  text-align: left;
+  white-space: pre-line;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+  width: 350px;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  line-height: 1.5;  /* ปรับระยะห่างของแต่ละบรรทัด */
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+
+
+.message-container.fade-out {
+  opacity: 0; /* ทำให้ข้อความค่อยๆ หายไป */
+}
+
