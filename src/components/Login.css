@@ -20,7 +20,6 @@
   position: relative;
   width: 700px;
   height: auto;
-  top: 60px;
   right: 70px;
 }
 
@@ -90,9 +89,16 @@
   width: 350px;
 }
 
-h1, h2, h3 {
+.fade-out-message {
+  opacity: 0;
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3 {
   margin: 0;
-  line-height: 1.5;  /* ปรับระยะห่างของแต่ละบรรทัด */
+  line-height: 1.5;
   font-size: 24px;
 }
 
@@ -106,7 +112,32 @@ h3 {
 
 
 
-.message-container.fade-out {
-  opacity: 0; /* ทำให้ข้อความค่อยๆ หายไป */
+
+
+.book-page {
+  position: absolute;
+  top: 415px;
+  left: 630px;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
 }
 
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transform: scale(0.2);
+  transition: transform 1s ease-in-out;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.background-image.expand {
+  transform: scale(1);
+}

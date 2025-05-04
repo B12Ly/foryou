@@ -5,36 +5,60 @@
   gap: 4px;
   margin-top: 20px;
   position: relative;
-  
 }
 
-  
-  .tile {
-    width: 120px;  
-    height: 120px;
-    background-size: 360px 360px; 
-    border: 1px solid #999;
-    cursor: grab;
-    position: relative;
-    
-  }
+.tile {
+  width: 120px;  
+  height: 120px;
+  background-size: 360px 360px; 
+  border: 1px solid #999;
+  cursor: grab;
+  position: relative;
+}
 
-  .tile:first-child {
-    border-top-left-radius: 10px; 
-  }
-  
-  .tile:nth-child(3) {
-    border-top-right-radius: 10px; 
-  }
-  
-  .tile:nth-last-child(3) {
-    border-bottom-left-radius: 10px; 
-  }
-  
-  .tile:last-child {
-    border-bottom-right-radius: 10px; 
-  }
-  
-  
+.tile:first-child {
+  border-top-left-radius: 10px; 
+}
 
-  
+.tile:nth-child(3) {
+  border-top-right-radius: 10px; 
+}
+
+.tile:nth-last-child(3) {
+  border-bottom-left-radius: 10px; 
+}
+
+.tile:last-child {
+  border-bottom-right-radius: 10px; 
+}
+
+/* CSS สำหรับปุ่มที่ไหลลง */
+.next-button-container {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: slideDown 1.5s ease-out forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    top: -100px;
+    opacity: 0;
+  }
+  100% {
+    top: 50px; /* ปรับตำแหน่งตามที่ต้องการ */
+    opacity: 1;
+  }
+}
+
+.next-button {
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.next-button:hover {
+  transform: scale(1.1);
+}
