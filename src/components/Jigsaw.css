@@ -1,10 +1,13 @@
 .jigsaw-grid {
   display: grid;
-  grid-template-columns: repeat(3, 108px);  
-  grid-template-rows: repeat(3, 108px);   
+  grid-template-columns: repeat(3, 113px);  
+  grid-template-rows: repeat(3, 113px);   
   gap: 4px;
   margin-top: 20px;
   position: relative;
+  border-radius: 10px;    /* มอนต์มุมที่ container */
+  overflow: hidden;        /* ครอบลูกให้โค้งตาม container */
+  
 }
 
 .tile {
@@ -16,22 +19,6 @@
   position: relative;
 }
 
-.tile:first-child {
-  border-top-left-radius: 10px; 
-}
-
-.tile:nth-child(3) {
-  border-top-right-radius: 10px; 
-}
-
-.tile:nth-last-child(3) {
-  border-bottom-left-radius: 10px; 
-}
-
-.tile:last-child {
-  border-bottom-right-radius: 10px; 
-}
-
 /* CSS สำหรับปุ่มที่ไหลลง */
 .next-button-container {
   position: fixed;
@@ -39,23 +26,27 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  animation: slideDown 1.5s ease-out forwards;
+  animation: slideDown 1.0s ease-out forwards;
 }
 
 @keyframes slideDown {
   0% {
     top: -100px;
-    opacity: 0;
+   
   }
   100% {
     top: 50px; /* ปรับตำแหน่งตามที่ต้องการ */
-    opacity: 1;
+    
   }
 }
 
 .next-button {
-  width: 150px;
+  position: absolute;
+  width: 200px; 
+  height: auto;
   cursor: pointer;
+  top: -100px;
+  left: 110px;
   transition: transform 0.2s;
 }
 
