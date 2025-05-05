@@ -16,6 +16,8 @@ function Login({ setPage }) {
   const [isUncovering, setIsUncovering] = useState(false);
   const [animFrame, setAnimFrame] = useState(0);
   const [bgExpanded, setBgExpanded] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [isNextClicked, setIsNextClicked] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100);
@@ -25,6 +27,12 @@ function Login({ setPage }) {
   const handleCoverClick = () => {
     setIsCovered(false);
     setIsUncovering(true);
+  };
+
+  const handleNextClick = () => {
+    setIsNextClicked(true);
+    setTimeout(() => setIsFadingOut(true), 500); // ให้ทุกอย่าง fade-out หลังจาก 500ms
+    setTimeout(() => setPage("load"), 3000); // เปลี่ยนหน้าไปที่ load หลังจาก fade-out เสร็จ
   };
 
   useEffect(() => {
@@ -38,7 +46,7 @@ function Login({ setPage }) {
   }, [isUncovering, isCovered]);
 
   return (
-    <div className={`login ${isVisible ? "fade-in" : ""}`}>
+    <div className={`login ${isVisible ? "fade-in" : ""} ${isFadingOut ? "fade-out" : ""}`}>
       <img
         src={bg}
         alt="background"
@@ -79,9 +87,7 @@ function Login({ setPage }) {
 
         {/* ข้อความ */}
         <div
-          className={`message-container ${
-            isUncovering ? "fade-out-message" : ""
-          }`}
+          className={`message-container ${isUncovering ? "fade-out-message" : ""}`}
         >
           <MessageLine text=" " delay={0} tag="h1" />
           <MessageLine
@@ -119,6 +125,16 @@ function Login({ setPage }) {
             }}
           />
         </div>
+
+        {/* ปุ่ม Next ที่จะ SlideUp */}
+        {!isNextClicked && (
+          <div
+            className={`next-button-container ${isNextClicked ? "slide-up" : ""}`}
+            onClick={handleNextClick}
+          >
+            <button className="next-button">Next</button>
+          </div>
+        )}
 
         {/* เกมจิ๊กซอว์ */}
         <div className="jigsaw-wrapper">

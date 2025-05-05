@@ -55,11 +55,11 @@ function Jigsaw({ setPage }) {
   const handleNextButtonClick = () => {
     setIsClicked(true);
     setTimeout(() => {
-      setIsFadingOut(true);
+      setIsFadingOut(true); // ทำให้ UI ทุกอย่าง fade-out
     }, 2000);
     setTimeout(() => {
-      setGoNext(true);
-    }, 3000); // ต้องให้เวลาพอหลัง fade-out ค่อยไปหน้าใหม่
+      setGoNext(true); // ไปหน้าใหม่หลังจาก fade-out เสร็จ
+    }, 3000); // รอหลังจาก fade-out เสร็จแล้ว
   };
 
   return (

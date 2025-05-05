@@ -7,7 +7,7 @@
   position: relative;
   border-radius: 10px;    /* มอนต์มุมที่ container */
   overflow: hidden;        /* ครอบลูกให้โค้งตาม container */
-  
+  transition: opacity 1s ease;
 }
 
 .tile {
@@ -17,9 +17,9 @@
   border: 1px solid #999;
   cursor: grab;
   position: relative;
+  transition: opacity 1s ease;
 }
 
-/* CSS สำหรับปุ่มที่ไหลลง */
 .next-button-container {
   position: fixed;
   top: -100px;
@@ -27,16 +27,15 @@
   transform: translateX(-50%);
   z-index: 10;
   animation: slideDown 1.0s ease-out forwards;
+  transition: opacity 1s ease;
 }
 
 @keyframes slideDown {
   0% {
     top: -100px;
-   
   }
   100% {
-    top: 50px; 
-    
+    top: 50px;
   }
 }
 
@@ -53,7 +52,7 @@
   animation: slideUp 1.0s ease-out forwards !important;
 }
 
-.fade-out-all {
+.fade-out {
   opacity: 0;
   transition: opacity 1s ease;
 }
