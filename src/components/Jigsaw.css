@@ -35,9 +35,27 @@
    
   }
   100% {
-    top: 50px; /* ปรับตำแหน่งตามที่ต้องการ */
+    top: 50px; 
     
   }
+}
+
+@keyframes slideUp {
+  0% {
+    top: 50px;
+  }
+  100% {
+    top: -100px;
+  }
+}
+
+.slide-up {
+  animation: slideUp 1.0s ease-out forwards !important;
+}
+
+.fade-out-all {
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
 .next-button {

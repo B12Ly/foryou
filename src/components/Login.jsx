@@ -10,7 +10,7 @@ import bg from "../assets/bg.png";
 import Jigsaw from "./Jigsaw";
 import MessageLine from "./MessageLine";
 
-function Login() {
+function Login({ setPage }) {
   const [isVisible, setIsVisible] = useState(false);
   const [isCovered, setIsCovered] = useState(true);
   const [isUncovering, setIsUncovering] = useState(false);
@@ -122,7 +122,7 @@ function Login() {
 
         {/* เกมจิ๊กซอว์ */}
         <div className="jigsaw-wrapper">
-          <Jigsaw />
+          <Jigsaw setPage={setPage} />
         </div>
       </div>
     </div>
