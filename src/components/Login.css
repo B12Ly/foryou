@@ -32,7 +32,7 @@
 .jigsaw-wrapper {
   position: absolute;
   top: 24px;
-  right: 320px;
+  right: 317.5px;
   z-index: 2;
 }
 
@@ -63,7 +63,8 @@
   width: 100px;
   height: auto;
   cursor: pointer;
-  transition: opacity 1s ease;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* เพิ่ม easing function */
+  transform: scale(1);
 }
 
 .cover-image.fade-out,
@@ -73,6 +74,7 @@
 
 .uncover-button:hover {
   transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
 }
 
 .message-container {

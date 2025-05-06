@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './Pre.css';
 import Cat from '../assets/cat.png';
-import flw1 from '../assets/flower1.png';
-import flw2 from '../assets/flower2.png';
 import Reye from '../assets/Reye.png';
 import Leye from '../assets/Leye.png';
+import StartButton from '../assets/start.png';
+import ReadyText from '../assets/prom.png';
+import FatCatText from '../assets/mha.png';
 
 function Pre({ setPage }) {
   const leftEyeRef = useRef(null);
@@ -58,8 +59,16 @@ function Pre({ setPage }) {
   return (
     <div className={`pre-container ${fadeOut ? 'fade-out' : ''}`}>
       <div className="top-box">
-        <div className="message message-1">พร้อมไหมม</div>
-        <div className="message message-2">ไอหมาอ้วนน อ้วนตุ้บบบบ</div>
+        <img 
+          src={ReadyText} 
+          alt="พร้อมไหมม" 
+          className="message-image message-1" 
+        />
+        <img
+          src={FatCatText}
+          alt="ไอหมาอ้วนน อ้วนตุ้บบบบ"
+          className="message-image message-2"
+        />
 
         <img src={Cat} className="Cat" alt="cat" />
 
@@ -73,11 +82,13 @@ function Pre({ setPage }) {
       </div>
 
       <div className="bottom-box">
-        <img src={flw1} className="flw1" alt="flower 1" />
-        <img src={flw2} className="flw2" alt="flower 2" />
-        <button className="custom-button" onClick={() => setFadeOut(true)}>
-          เริ่มกันเลยย เย้ เย้!
-        </button>
+
+        <img
+          src={StartButton}
+          alt="เริ่มกันเลย"
+          className="start-button-image"
+          onClick={() => setFadeOut(true)}
+        />
       </div>
     </div>
   );

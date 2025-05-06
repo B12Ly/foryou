@@ -34,69 +34,57 @@ body,
   position: relative;
 }
 
-.message {
-  margin: 10px;
-  text-align: center;
-  font-family: 'Inter', sans-serif;
+
+.message-image {
+  width: 200px;
+  height: auto;
+  margin: 10px 0;
+  position: absolute;
 
 }
 
 .message-1 {
-  color: #86a788;
-  font-size: 3vw;
-  font-weight: 700;
-  margin-top: -23vh;
-  margin-bottom: -2vh;
+  width: 200px;
+  height: auto;
+  top: 40px;
 }
 
 .message-2 {
-  color: #ffcfcf;
-  font-size: 3vw;
-  font-weight: 700;
+  width: 450px;
+  height: auto;
+  top: 90px;
 }
 
-.custom-button {
-  background-color: #86a788;
-  color: #fffcfd;
-  font-size: 2.5vw;
-  font-family: 'Inter', sans-serif;
-  font-weight: 550;
-  border: none;
-  border-radius: 15px;
-  width: 70vw;
-  max-width: 450px;
-  height: 10vh;
+
+.start-button-image {
+  width: 450px;
+  top: 120px;
+  height: auto;
   min-height: 60px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   position: absolute;
-  bottom: 5vh;
-  top: 20vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: transform 0.3s ease;
+  object-fit: contain;
 }
 
-.custom-button:hover {
-  background-color: #789479;
+.start-button-image:hover {
+  transform: scale(1.05);
 }
+
 
 .Cat {
-  width: 50vw;
-  max-width: 730px;
+  width: 800px;
   height: auto;
   position: absolute;
-  top: 17vh;
+  top: 120px;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
 }
 
 .eye {
-  width: 8vw;
-  height: 8vw;
-  max-width: 70px;
-  max-height: 70px;
+  width: 80px;
+  height: auto;
   position: absolute;
   top: 41.5vh;
   display: flex;
@@ -124,48 +112,10 @@ body,
   position: relative;
 }
 
-.flw1,
-.flw2 {
-  position: absolute;
-  z-index: 10;
-  transform: scale(0.4);
-  width: auto;
-  height: auto;
-}
-
-.flw1 {
-  top: 14vh;
-  left: 33vw;
-}
-
-.flw2 {
-  top: 24vh;
-  right: 34vw;
-}
-
-/* Responsive Media Queries */
-@media screen and (max-width: 768px) {
-
-  .message-1,
-  .message-2 {
-    font-size: 6vw;
-  }
-
-  .custom-button {
-    font-size: 6vw;
-    height: 12vh;
-  }
-
-  .eye {
-    top: 34vh;
-  }
-}
-
 
 .fade-out {
   background-color: white;
   opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.6s ease, transform 1.0s ease;
+  transition: opacity 0.6s ease;
   pointer-events: none;
 }

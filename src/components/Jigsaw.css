@@ -1,12 +1,12 @@
 .jigsaw-grid {
   display: grid;
-  grid-template-columns: repeat(3, 113px);  
-  grid-template-rows: repeat(3, 113px);   
+  grid-template-columns: repeat(3, 110px);  
+  grid-template-rows: repeat(3, 110px);   
   gap: 4px;
   margin-top: 20px;
   position: relative;
-  border-radius: 10px;    /* มอนต์มุมที่ container */
-  overflow: hidden;        /* ครอบลูกให้โค้งตาม container */
+  border-radius: 10px;   
+  overflow: hidden;       
   transition: opacity 1s ease;
 }
 
