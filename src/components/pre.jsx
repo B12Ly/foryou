@@ -1,16 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./pre.css";
-import Cat from "../assets/cat.png";
-import flw1 from "../assets/flower1.png";
-import flw2 from "../assets/flower2.png";
-import Reye from "../assets/Reye.png";
-import Leye from "../assets/Leye.png";
-import Login from "../components/login";
+import React, { useRef, useState, useEffect } from 'react';
+import './Pre.css';
+import Cat from '../assets/cat.png';
+import flw1 from '../assets/flower1.png';
+import flw2 from '../assets/flower2.png';
+import Reye from '../assets/Reye.png';
+import Leye from '../assets/Leye.png';
 
-function Pre() {
+function Pre({ setPage }) {
   const leftEyeRef = useRef(null);
   const rightEyeRef = useRef(null);
-  const [started, setStarted] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
@@ -19,8 +17,8 @@ function Pre() {
       const rightEye = rightEyeRef.current;
 
       if (leftEye && rightEye) {
-        const leftPupil = leftEye.querySelector(".pupil");
-        const rightPupil = rightEye.querySelector(".pupil");
+        const leftPupil = leftEye.querySelector('.pupil');
+        const rightPupil = rightEye.querySelector('.pupil');
 
         movePupil(leftEye, leftPupil, e.clientX, e.clientY);
         movePupil(rightEye, rightPupil, e.clientX, e.clientY);
@@ -44,25 +42,21 @@ function Pre() {
       }px)`;
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [started]);
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   useEffect(() => {
     if (fadeOut) {
       const timer = setTimeout(() => {
-        setStarted(true);
-      }, 600); // ควรตรงกับเวลา transition
+        setPage('login');
+      }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [fadeOut]);
-
-  if (started) {
-    return <Login />;
-  }
+  }, [fadeOut, setPage]);
 
   return (
-    <div className={`pre-container ${fadeOut ? "fade-out" : ""}`}>
+    <div className={`pre-container ${fadeOut ? 'fade-out' : ''}`}>
       <div className="top-box">
         <div className="message message-1">พร้อมไหมม</div>
         <div className="message message-2">ไอหมาอ้วนน อ้วนตุ้บบบบ</div>

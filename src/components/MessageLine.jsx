@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-function MessageLine({ text, delay = 0, tag = "p", style = {} }) {
+function MessageLine({ text, delay = 0, tag = 'p', style = {} }) {
   const [reveal, setReveal] = useState(false);
   const Tag = tag;
 
@@ -14,15 +14,14 @@ function MessageLine({ text, delay = 0, tag = "p", style = {} }) {
   return (
     <Tag
       style={{
-        overflow: "hidden",
-        display: "inline-block",
-        background: "linear-gradient(to right, #000 50%, transparent 50%)",
-        backgroundSize: "200% 100%",
-        backgroundPosition: reveal ? "left bottom" : "right bottom",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-        transition: "background-position 2s ease",
-        
+        overflow: 'hidden',
+        display: 'inline-block',
+        background: 'linear-gradient(to right, #000 50%, transparent 50%)',
+        backgroundSize: '200% 100%',
+        backgroundPosition: reveal ? 'left bottom' : 'right bottom',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        transition: 'background-position 2s ease',
         ...style,
       }}
     >

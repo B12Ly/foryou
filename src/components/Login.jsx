@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./login.css";
+import "./Login.css";
 import book from "../assets/book2.png";
 import cover from "../assets/cover.png";
 import uncover from "../assets/uncover.png";
@@ -9,6 +9,8 @@ import tell from "../assets/tell.png";
 import bg from "../assets/bg.png";
 import Jigsaw from "./Jigsaw";
 import MessageLine from "./MessageLine";
+import nb from "../assets/nb.png";
+import nbhover from "../assets/hovernb.png";
 
 function Login({ setPage }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,8 +18,10 @@ function Login({ setPage }) {
   const [isUncovering, setIsUncovering] = useState(false);
   const [animFrame, setAnimFrame] = useState(0);
   const [bgExpanded, setBgExpanded] = useState(false);
-  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [fadeAll, setFadeAll] = useState(false);
   const [isNextClicked, setIsNextClicked] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [showNextButton, setShowNextButton] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100);
@@ -30,9 +34,15 @@ function Login({ setPage }) {
   };
 
   const handleNextClick = () => {
-    setIsNextClicked(true);
-    setTimeout(() => setIsFadingOut(true), 500); // ให้ทุกอย่าง fade-out หลังจาก 500ms
-    setTimeout(() => setPage("load"), 3000); // เปลี่ยนหน้าไปที่ load หลังจาก fade-out เสร็จ
+    setIsNextClicked(true); 
+
+    setTimeout(() => {
+      setFadeAll(true); 
+      setBgExpanded(false); 
+
+     
+      setTimeout(() => setPage("load"), 1000);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -46,7 +56,11 @@ function Login({ setPage }) {
   }, [isUncovering, isCovered]);
 
   return (
-    <div className={`login ${isVisible ? "fade-in" : ""} ${isFadingOut ? "fade-out" : ""}`}>
+    <div
+      className={`login ${isVisible ? "fade-in" : ""} ${
+        fadeAll ? "fade-out-all" : ""
+      }`}
+    >
       <img
         src={bg}
         alt="background"
@@ -68,7 +82,6 @@ function Login({ setPage }) {
           />
         )}
 
-        {/* ปกหนังสือและปุ่ม */}
         {isCovered && (
           <div className="cover-container">
             <img
@@ -85,9 +98,10 @@ function Login({ setPage }) {
           </div>
         )}
 
-        {/* ข้อความ */}
         <div
-          className={`message-container ${isUncovering ? "fade-out-message" : ""}`}
+          className={`message-container ${
+            isUncovering ? "fade-out-message" : ""
+          }`}
         >
           <MessageLine text=" " delay={0} tag="h1" />
           <MessageLine
@@ -126,20 +140,26 @@ function Login({ setPage }) {
           />
         </div>
 
-        {/* ปุ่ม Next ที่จะ SlideUp */}
-        {!isNextClicked && (
+        <div className="jigsaw-wrapper">
+          <Jigsaw onComplete={() => setShowNextButton(true)} />
+        </div>
+
+        {showNextButton && (
           <div
-            className={`next-button-container ${isNextClicked ? "slide-up" : ""}`}
+            className={`next-button-container ${
+              isNextClicked ? "slide-up" : ""
+            }`}
             onClick={handleNextClick}
           >
-            <button className="next-button">Next</button>
+            <img
+              src={isHovered ? nbhover : nb}
+              alt="Next"
+              className="next-button"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            />
           </div>
         )}
-
-        {/* เกมจิ๊กซอว์ */}
-        <div className="jigsaw-wrapper">
-          <Jigsaw setPage={setPage} />
-        </div>
       </div>
     </div>
   );

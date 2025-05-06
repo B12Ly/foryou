@@ -133,11 +133,31 @@ h3 {
   height: 100vh;
   object-fit: cover;
   transform: scale(0.2);
-  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, opacity 1s ease;
   z-index: -1;
   pointer-events: none;
 }
 
 .background-image.expand {
   transform: scale(1);
+  opacity: 1;
 }
+
+.fade-out-all {
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+.fade-out-all .book-container,
+.fade-out-all .jigsaw-wrapper,
+.fade-out-all .message-container {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.fade-out-all .background-image {
+  transform: scale(0.2);
+  opacity: 0;
+}
+
