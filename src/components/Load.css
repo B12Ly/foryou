@@ -1,3 +1,135 @@
-.m1 {
-    color: black;
+.load-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.load-container.fade-out {
+    opacity: 0;
+}
+
+.load-bg {
+    position: absolute;
+    width: 100%;
+    height: auto;
+
+}
+
+.load-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.decor {
+    position: absolute;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+}
+
+.decor1 {
+
+    width: 280px;
+    top: -150px;
+    left: 170px;
+    animation-delay: 0.2s;
+}
+
+.decor2 {
+    width: 180px;
+    top: -90px;
+    left: 220px;
+    animation-delay: 0.5s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.loading-text {
+    font-size: 1.5rem;
+    color: #F0CAD5;
+    font-family: 'Arial', sans-serif;
+    position: absolute;
+    top: 210px;
+    left: 270px;
+}
+
+.progress-container {
+    /* ชั้นกรอบนอก */
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border: 3px solid #F0CAD5;
+    border-radius: 8px;
+    position: absolute;
+    overflow: hidden;
+    top: 250px; /* ปรับตำแหน่งใหม่ */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+  
+  /* ชั้นกรอบใน */
+  .progress-container::before {
+    content: '';
+    position: absolute;
+    top: 2px; /* เปลี่ยนจาก 250px */
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border: 2px solid #FFFDEC;
+    border-radius: 5px;
+    z-index: 1;
+  }
+  
+  .progress-bar {
+    height: calc(100% - 4px);;
+    background: #F0CAD5;
+    position: relative; /* เปลี่ยนจาก absolute */
+    z-index: 2;
+    transition: width 0.3s ease;
+    width: 0%; /* ต้องมีค่าเริ่มต้น */
+    top: 2.5px;
+    left: 3px;
+    border-radius: 8px; 
+
+  }
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+/* ทำให้พื้นหลังเห็นชัดขึ้นสำหรับการออกแบบ */
+.load-container {
+    background-color: white;
+    /* สี overlay */
+}
+
+.load-content {
+    padding: 20px;
 }
