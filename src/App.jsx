@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Pre from './components/pre.jsx';
 import Login from './components/Login';
 import Load from './components/Load';
-import './App.css';
+import Main from './components/Main'; 
 
 function App() {
   const [currentPage, setCurrentPage] = useState('pre');
@@ -11,9 +11,13 @@ function App() {
     <div className="app-container">
       {currentPage === 'pre' && <Pre setPage={setCurrentPage} />}
       {currentPage === 'login' && <Login setPage={setCurrentPage} />}
-      {currentPage === 'load' && <Load />}
+      {currentPage === 'load' && (
+        <Load onLoadingComplete={() => setCurrentPage('main')} />
+      )}
+      {currentPage === 'main' && <Main />} 
     </div>
   );
 }
+
 
 export default App;
