@@ -1,57 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Main.css";
-import cakeImage from "../assets/cake.png";
+import image1 from "../assets/polariod.png"; // เปลี่ยนเป็นชื่อภาพจริง
+import image2 from "../assets/wish2.png";
 
 function Main() {
-  const [lightIntensity, setLightIntensity] = useState(0);
-  const [showCake, setShowCake] = useState(false);
+  const [showFirst, setShowFirst] = useState(false);
+  const [showSecond, setShowSecond] = useState(false);
 
   useEffect(() => {
-    // เริ่มด้วยหน้าจอมืดสนิท
-    setLightIntensity(0);
+    const timer1 = setTimeout(() => {
+      setShowFirst(true);
+    }, 500); // เริ่มภาพแรกหลังจาก 0.5 วิ
 
-    // แสงเทียนค่อยๆ สว่างขึ้น (3 วินาที)
-    const lightInterval = setInterval(() => {
-      setLightIntensity((prev) => {
-        if (prev >= 100) {
-          clearInterval(lightInterval);
-          return 100;
-        }
-        return prev + 2;
-      });
-    }, 60);
+    const timer2 = setTimeout(() => {
+      setShowSecond(true);
+    }, 3000); // เริ่มภาพสองหลังจาก 2 วิ
 
-    // แสดงเค้กหลังจากแสงสว่างพอสมควร
-    setTimeout(() => {
-      setShowCake(true);
-    }, 1500);
-
-    return () => clearInterval(lightInterval);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
   }, []);
 
   return (
     <div className="main-container">
-      {/* พื้นหลังสีดำ fade-in */}
-      <div
-        className="black-fade"
-        style={{ opacity: 1 - lightIntensity / 100 }}
-      ></div>
-
-      {/* Layer แสงเทียน */}
-      <div
-        className="candle-light"
-        style={{ opacity: lightIntensity / 100 }}
-      ></div>
-
-      {/* เค้ก */}
-      {showCake && (
-        <img
-          src={cakeImage}
-          alt="Birthday Cake"
-          className="cake-image"
-          style={{ opacity: (lightIntensity - 30) / 70 }}
-        />
-      )}
+      <img
+        src={image1}
+        alt="Image 1"
+        className={`fade-image image1 ${showFirst ? "visible" : ""}`}
+      />
+      <img
+        src={image2}
+        alt="Image 2"
+        className={`fade-image image2 ${showSecond ? "visible" : ""}`}
+      />
     </div>
   );
 }
